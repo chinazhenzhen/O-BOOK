@@ -1,11 +1,8 @@
-
 #sqlalchemy 生成数据库
 #flask_sqlalchemy
-
 from sqlalchemy import Column,Integer,String
-from flask_sqlalchemy import SQLAlchemy
 
-db = SQLAlchemy()
+from app.models.base import db
 
 class Book(db.Model):
     #__tablename__ = 'book'

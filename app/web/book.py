@@ -27,6 +27,7 @@ def search():
         q = form.q.data.strip()
         page = form.page.data
         isbn_or_key = is_isbn_or_key(q)
+
         O_Book = OBook()
 
         if isbn_or_key == 'isbn':
@@ -42,7 +43,10 @@ def search():
 
 @web.route('/book/<isbn>/detail')
 def book_detail(isbn):
-    pass
+    o_book = OBook()
+    o_book.search_by_isbn(isbn)
+    book = BookViewModel(o_book.first)
+    return render_template('book_detail.html',book=book,wishes=[],gifts=[])
 
 @web.route('/test')
 def test():
