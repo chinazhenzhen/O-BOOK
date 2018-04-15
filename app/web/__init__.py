@@ -1,8 +1,14 @@
-#web为python包，优先执行__init__文件
-#蓝图注册
-from flask import Blueprint
+from flask import Blueprint, url_for
 
-web = Blueprint('web',__package__)
 
-#注册蓝图导入相关模块
-from app.web import book,auth,drift,gift,main,wish
+
+web = Blueprint('web', __name__, template_folder='templates')
+
+from app.web import auth
+from app.web import main
+from app.web import book
+from app.web import errors
+from app.web import wish
+from app.web import gift
+from app.web import drift
+from app.web import passenger
